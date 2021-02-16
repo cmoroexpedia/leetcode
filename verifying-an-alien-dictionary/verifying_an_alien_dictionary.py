@@ -12,7 +12,7 @@ class Solution(object):
         # create hashmap with order of alien dictionary
         for i in range(len(order)):
             orderDict[order[i]] = i
-        # print orderDict
+        # print(orderDict)
 
         if len(words) == 1:
             return True
@@ -22,18 +22,18 @@ class Solution(object):
         while i < len(words):
             currentWord = words[i]
             previousWord = words[i-1]
-            # print "current word: {}".format(currentWord)
-            # print "previous word: {}".format(previousWord)
+            # print("current word: {}".format(currentWord))
+            # print("previous word: {}".format(previousWord))
 
             j = 0
             while j < min(len(previousWord),len(currentWord)):
                 currentChar = currentWord[j]
                 previousChar = previousWord[j]
                 j += 1
-                # print "current char: {}".format(currentChar)
-                # print "previous char: {}".format(previousChar)
+                # print("current char: {}".format(currentChar))
+                # print("previous char: {}".format(previousChar))
                 if orderDict[currentChar] < orderDict[previousChar]:
-                    print "returning false"
+                    print("returning false")
                     return False
                 elif orderDict[currentChar] == orderDict[previousChar]:
                     continue
@@ -63,19 +63,19 @@ def main():
             yield line.strip('\n')
     lines = readlines()
     while True:
-        print "**************************** start *******************************"
+        print("**************************** start *******************************")
         try:
-            line = lines.next()
+            line = next(lines)
             words = stringToStringArray(line)
-            print "words: {}".format(words)
-            line = lines.next()
+            print("words: {}".format(words))
+            line = next(lines)
             order = stringToString(line)
-            print "order: {}".format(order)
+            print("order: {}".format(order))
 
             ret = Solution().isAlienSorted(words, order)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

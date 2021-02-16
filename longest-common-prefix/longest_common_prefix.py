@@ -66,19 +66,19 @@ class Solution(object):
         longest_size = 0
 
         def traverseTree (current_string, node):
-            print "current string: " + current_string + " (" + str(node.occurrences) + ")"
+            print("current string: " + current_string + " (" + str(node.occurrences) + ")")
             global longest_size
             global longest_string
 
             if node.occurrences == len(strs):
                 size = len(current_string)
-                print "found common prefix '" + current_string + "' of size " + str(size)
+                print("found common prefix '" + current_string + "' of size " + str(size))
                 if size > longest_size:
                     longest_size = size
                     longest_string = current_string
 
             if node.isWord:
-                print "^^^ is a word"
+                print("^^^ is a word")
 
             for char in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']:
                 if getattr(node,char):
@@ -90,14 +90,14 @@ class Solution(object):
 
         # load strings in tree
         for string in strs:
-            print "adding string '" + string + "' to tree"
+            print("adding string '" + string + "' to tree")
             # pointer to traverse tree
             ptr = root
             for i, char in enumerate(string):
-                # print "adding char '" + char + "' to tree"
+                # print("adding char '" + char + "' to tree")
                 if getattr(ptr,char):
                     pass
-                    # print "found char '" + char
+                    # print("found char '" + char)
                 else:
                     setattr(ptr,char,DictionaryNode())
                 ptr = getattr(ptr, char)
@@ -107,7 +107,7 @@ class Solution(object):
 
 
         # traversing tree (just or fun)
-        print "traversing tree"
+        print("traversing tree")
         traverseTree("",root)
 
         return longest_string
@@ -127,15 +127,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "******************************************************************************"
-            line = lines.next()
+            print("******************************************************************************")
+            line = next(lines)
             strs = stringToStringArray(line)
-            print "strings: " + str(strs)
+            print("strings: " + str(strs))
 
             ret = Solution().longestCommonPrefix(strs)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

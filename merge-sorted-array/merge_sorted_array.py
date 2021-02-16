@@ -12,7 +12,7 @@ class Solution(object):
 
         # make a copy of nums1
         nums1_copy = nums1[:m]
-        # print "nums1_copy: " + str(nums1_copy)
+        # print("nums1_copy: " + str(nums1_copy))
 
         # create pointers to track position for nums1, nums2 and results
         nums1_pointer = 0
@@ -20,9 +20,9 @@ class Solution(object):
         res_pointer = 0
 
         while res_pointer < n+m:
-            # print "nums1_pointer: " + str(nums1_pointer)
-            # print "nums2_pointer: " + str(nums2_pointer)
-            # print "res_pointer: " + str(res_pointer)
+            # print("nums1_pointer: " + str(nums1_pointer))
+            # print("nums2_pointer: " + str(nums2_pointer))
+            # print("res_pointer: " + str(res_pointer))
 
 
             if nums1_pointer == m:
@@ -70,27 +70,27 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             nums1 = stringToIntegerList(line)
-            print "nums1: " + str(nums1)
-            line = lines.next()
+            print("nums1: " + str(nums1))
+            line = next(lines)
             m = stringToInt(line)
-            print "m: " + str(m)
-            line = lines.next()
+            print("m: " + str(m))
+            line = next(lines)
             nums2 = stringToIntegerList(line)
-            print "nums2: " + str(nums2)
-            line = lines.next()
+            print("nums2: " + str(nums2))
+            line = next(lines)
             n = stringToInt(line)
-            print "n: " + str(n)
+            print("n: " + str(n))
 
             ret = Solution().merge(nums1, m, nums2, n)
 
             out = integerListToString(nums1)
             if ret is not None:
-                print "Do not return anything, modify nums1 in-place instead."
+                print("Do not return anything, modify nums1 in-place instead.")
             else:
-                print out
+                print(out)
         except StopIteration:
             break
 

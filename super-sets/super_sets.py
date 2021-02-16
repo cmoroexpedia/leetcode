@@ -13,4 +13,4 @@ def P(s):
     return result
 
 
-print P(['a','b'])
+print(P(['a','b']))

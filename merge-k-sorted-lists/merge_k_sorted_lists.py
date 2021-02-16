@@ -21,7 +21,7 @@ class Solution(object):
         ptr = dummyRoot
 
         # for list in lists:
-        #     print "traversing list"
+        #     print("traversing list")
         #     travereLinkedList(list)
 
 
@@ -46,9 +46,9 @@ class Solution(object):
             minVal = None
 
         while minVal is not None:
-            # print "head: {}".format(head)
-            # print "minVal: {}".format(minVal)
-            # print "minValIndex: {}".format(head.index(minVal))
+            # print("head: {}".format(head))
+            # print("minVal: {}".format(minVal))
+            # print("minValIndex: {}".format(head.index(minVal)))
             headIndex = head.index(minVal)
             minNode = ListNode(minVal)
             ptr.next = minNode
@@ -73,7 +73,7 @@ def travereLinkedList(list):
 
     ptr = list
     while ptr is not None:
-        print ptr.val
+        print(ptr.val)
         ptr = ptr.next
 
 
@@ -117,14 +117,14 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             lists = stringToListNodeArray(line)
 
             ret = Solution().mergeKLists(lists)
 
             out = listNodeToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

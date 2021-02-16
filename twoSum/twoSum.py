@@ -24,23 +24,23 @@ class Solution(object):
         """
 
         sortedIndexes = self.getSortedIndex(nums)
-        # print "sorted indexes: " + str(sortedIndexes)
+        # print("sorted indexes: " + str(sortedIndexes))
         sortedNums = sorted(nums)
-        # print "sorted nums: " + str(sortedNums)
+        # print("sorted nums: " + str(sortedNums))
 
         sum = 0
-        # print "range: " + str(range(0,len(sortedNums)))
+        # print("range: " + str(range(0,len(sortedNums))))
         for x in range(0,len(sortedNums)):
-            # print "new iteration... x is now " + str(x)
+            # print("new iteration... x is now " + str(x))
             y = x + 1
-            # print "y is now " + str(y)
+            # print("y is now " + str(y))
             sum = sortedNums[x] + sortedNums[y]
-            # print "current sum: " + str(sum)
+            # print("current sum: " + str(sum))
             while (sum < target) and (y < len(sortedNums)-1):
                 y += 1
-                # print "y is now " + str(y)
+                # print("y is now " + str(y))
                 sum = sortedNums[x] + sortedNums[y]
-                # print "current sum: " + str(sum)
+                # print("current sum: " + str(sum))
             if sum == target:
                 return sorted([sortedIndexes[x],sortedIndexes[y]])
 
@@ -70,18 +70,18 @@ def main():
 
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             nums = stringToIntegerList(line)
-            print "nums:" + str(nums)
-            line = lines.next()
+            print("nums:" + str(nums))
+            line = next(lines)
             target = stringToInt(line)
-            print "target: " + str(target)
+            print("target: " + str(target))
 
             ret = Solution().twoSum(nums, target)
 
             out = integerListToString(ret)
-            print "result: " + out
+            print("result: " + out)
         except StopIteration:
             break
 

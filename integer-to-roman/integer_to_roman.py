@@ -60,11 +60,11 @@ class Solution(object):
 
         result = ""
         for i, char in enumerate(str(num)):
-            print "converting: " + char
+            print("converting: " + char)
             decimal = 10 ** (len(str(num)) - i - 1)
-            print "decimal: " + str(decimal)
+            print("decimal: " + str(decimal))
             char_in_roman = get_roman(int(char),decimal)
-            print "current decimal in roman: " + char_in_roman
+            print("current decimal in roman: " + char_in_roman)
             result += char_in_roman
 
         return result
@@ -82,15 +82,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "******************************************************************************"
-            line = lines.next()
+            print("******************************************************************************")
+            line = next(lines)
             num = stringToInt(line)
-            print "number to convert: " + str(num)
+            print("number to convert: " + str(num))
 
             ret = Solution().intToRoman(num)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

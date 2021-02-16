@@ -11,11 +11,11 @@ class Solution(object):
         i = 0
 
         while i < nums_size:
-            # print "i:" + str(i)
+            # print("i:" + str(i))
             # compare current number with next number
             if nums[i] == nums[i+1]:
                 # if they are the same delete current number
-                # print "deleting " + str(nums[i])
+                # print("deleting " + str(nums[i]))
                 del(nums[i])
                 nums_size -= 1
             else:
@@ -43,15 +43,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
-            print "original: " + str(line)
+            print("********************** start ************************")
+            line = next(lines)
+            print("original: " + str(line))
             nums = stringToIntegerList(line)
 
             ret = Solution().removeDuplicates(nums)
 
             out = integerListToString(nums, len_of_list=ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

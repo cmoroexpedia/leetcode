@@ -9,7 +9,7 @@ class Solution_Slow(object):
         left_wall_height = 0
         total_water_trapped = 0
         for i in range(len(height)):
-            # print "height of column " + str(i) + " = " + str(height[i])
+            # print("height of column " + str(i) + " = " + str(height[i]))
             if height[i] > left_wall_height:
                 # current height is bigger than left wall, so no water can be trapped here
                 left_wall_height = height[i]
@@ -23,11 +23,11 @@ class Solution_Slow(object):
             else:
                 # left wall is higher, so we can potentially trap water here
                 right_wall_height = max(height[i+1:len(height)+1])
-                # print "left_wall_height: " + str(left_wall_height)
-                # print "right_wall_height: " + str(right_wall_height)
+                # print("left_wall_height: " + str(left_wall_height))
+                # print("right_wall_height: " + str(right_wall_height))
                 if min(right_wall_height,left_wall_height) > height[i]:
                     water_trapped = min(right_wall_height,left_wall_height) - height[i]
-                    # print "water trapped here: " + str(water_trapped)
+                    # print("water trapped here: " + str(water_trapped))
                     total_water_trapped += water_trapped
 
         return total_water_trapped
@@ -46,7 +46,7 @@ class Solution(object):
         total_water_trapped = 0
 
         while left < right:
-            # print "left: " + str(left) + ", right: " + str(right)
+            # print("left: " + str(left) + ", right: " + str(right))
             if height[left] < height[right]:
                 if height[left] > left_max:
                     left_max = height[left]
@@ -79,15 +79,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             height = stringToIntegerList(line)
-            print "height: " + str(height)
+            print("height: " + str(height))
 
             ret = Solution().trap(height)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

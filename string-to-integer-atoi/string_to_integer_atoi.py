@@ -45,11 +45,11 @@ class Solution(object):
         i = 0
         while i<len(s) and s[i] == ' ':
             i += 1
-            # print "skipping empty space. i=" + str(i)
+            # print("skipping empty space. i=" + str(i))
 
         # no integer found
         if i == len(s):
-            # print "no integer found. returning zero"
+            # print("no integer found. returning zero")
             return 0
 
         # check for minus or plus sign
@@ -60,28 +60,28 @@ class Solution(object):
         elif s[i] == '+':
             i += 1
 
-        # print "number start at index: " + str(i)
+        # print("number start at index: " + str(i))
 
         # check for signal without number
         if len(s) == i:
             return 0
 
         if not s[i].isdigit():
-            # print "not a digit. returning zero"
+            # print("not a digit. returning zero")
             return 0
 
         number_string = ""
         for char_index in range(i,len(s)):
             if s[char_index].isdigit():
-                # print s[char_index] + " is digit"
+                # print(s[char_index] + " is digit")
                 number_string += s[char_index]
             else:
                 break
             # if len(number_string) == 11:
-            #     # print "number getting too big. stopping here"
+            #     # print("number getting too big. stopping here")
             #     break
 
-        # print "abs number string: " + number_string
+        # print("abs number string: " + number_string)
 
         if negative:
             return max(-2**31,int(number_string)*-1)
@@ -106,14 +106,14 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             str = stringToString(line)
-            print "string to be converted: " + str
+            print("string to be converted: " + str)
             ret = Solution().myAtoi(str)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

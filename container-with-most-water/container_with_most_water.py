@@ -13,14 +13,14 @@ class Solution(object):
 
         while i != j:
             iterations +=1
-            print "---"
-            print "i:" + str(i) + ", j:" + str(j)
-            print "values: " + str(height[i]) + "," + str(height[j])
+            print("---")
+            print("i:" + str(i) + ", j:" + str(j))
+            print("values: " + str(height[i]) + "," + str(height[j]))
             min_height = min(height[i],height[j])
-            print "min height: " + str(min_height)
-            print "area = " + str(j-i) + " * " + str(min_height)
+            print("min height: " + str(min_height))
+            print("area = " + str(j-i) + " * " + str(min_height))
             area = (j-i)*min_height
-            print "area = " + str(area)
+            print("area = " + str(area))
             if area > max_area:
                 max_area = area
             if height[i] < height[j]:
@@ -28,7 +28,7 @@ class Solution(object):
             else:
                 j -= 1
 
-        print "iterations: " + str(iterations)
+        print("iterations: " + str(iterations))
         return max_area
 
 
@@ -42,22 +42,22 @@ class Solution_Slow(object):
         iterations = 0
 
         for i in range(0,len(height)):
-            print "------------"
+            print("------------")
             if (len(height) - i) * height[i] <= max_area:
                 continue
             for j in reversed(range(i+1,len(height))):
                 iterations +=1
-                print "---"
-                print "i:" + str(i) + ", j:" + str(j)
-                print "values: " + str(height[i]) + "," + str(height[j])
+                print("---")
+                print("i:" + str(i) + ", j:" + str(j))
+                print("values: " + str(height[i]) + "," + str(height[j]))
                 min_height = min(height[i],height[j])
-                print "min height: " + str(min_height)
-                print "area = " + str(j-i) + " * " + str(min_height)
+                print("min height: " + str(min_height))
+                print("area = " + str(j-i) + " * " + str(min_height))
                 area = (j-i)*min_height
-                print "area = " + str(area)
+                print("area = " + str(area))
                 if area > max_area:
                     max_area = area
-        print "iterations: " + str(iterations)
+        print("iterations: " + str(iterations))
         return max_area
 
 def stringToIntegerList(input):
@@ -76,14 +76,14 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             height = stringToIntegerList(line)
-            print "height: " + str(height)
+            print("height: " + str(height))
             ret = Solution().maxArea(height)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

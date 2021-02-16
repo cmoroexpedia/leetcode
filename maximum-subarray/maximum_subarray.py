@@ -13,9 +13,9 @@ class Solution_Slow(object):
             for i in range(len(nums)+1):
                 for j in range (i+1, len(nums)+1):
                     subArray = nums[i:j]
-                    # print subArray
+                    # print(subArray)
                     sumSubArray = sum(subArray)
-                    # print "sum: " + str(sumSubArray)
+                    # print("sum: " + str(sumSubArray))
                     if sumSubArray > maxSum:
                         maxSum = sumSubArray
 
@@ -79,15 +79,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             nums = stringToIntegerList(line)
-            print "nums: " + str(nums)
+            print("nums: " + str(nums))
 
             ret = Solution().maxSubArray(nums)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

@@ -37,18 +37,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             nums = stringToIntegerList(line)
-            print "nums: " + str(nums)
-            line = lines.next()
+            print("nums: " + str(nums))
+            line = next(lines)
             target = stringToInt(line)
-            print "target: " + str(target)
+            print("target: " + str(target))
 
             ret = Solution().searchInsert(nums, target)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

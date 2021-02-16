@@ -41,7 +41,7 @@ class Solution(object):
         #         print("two_dimension_array[{}][{}] = ".format(row,col) + two_dimension_array[row][col])
 
         result = ""
-        result_array = [[]*numRows for x in xrange(numRows)]
+        result_array = [[]*numRows for x in range(numRows)]
         zig_zag_size = self.get_zig_zag_size(numRows)
         # print("zig zag size: " + str(zig_zag_size))
 
@@ -88,18 +88,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             s = stringToString(line)
-            print "string to be processed: " + s
-            line = lines.next()
+            print("string to be processed: " + s)
+            line = next(lines)
             numRows = stringToInt(line)
-            print "number of rows: " + str(numRows)
+            print("number of rows: " + str(numRows))
 
             ret = Solution().convert(s, numRows)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

@@ -14,7 +14,7 @@ class Solution(object):
 
         ans = True
         while left < right:
-            # print "checking s[{}]={}; s[right]={}: {}".format(left, s[left].lower(), right, s[right].lower())
+            # print("checking s[{}]={}; s[right]={}: {}".format(left, s[left].lower(), right, s[right].lower()))
             #check for non-alphanumeric
             if not s[left].isalnum():
                 left += 1
@@ -23,7 +23,7 @@ class Solution(object):
                 right -= 1
                 continue
             if s[left].lower() == s[right].lower():
-                # print "chars {} and {} match".format(s[left].lower(),s[right].lower())
+                # print("chars {} and {} match".format(s[left].lower(),s[right].lower()))
                 ans = True
             else:
                 ans = False
@@ -44,15 +44,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             s = stringToString(line)
-            print s
+            print(s)
 
             ret = Solution().isPalindrome(s)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

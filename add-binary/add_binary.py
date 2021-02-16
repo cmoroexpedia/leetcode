@@ -16,10 +16,10 @@ class Solution(object):
         ans = ""
 
         while currA or currB or carry:
-            # print "************************"
-            # print "currA: {}".format(currA)
-            # print "currB: {}".format(currB)
-            # print "carry: {}".format(carry)
+            # print("************************"
+            # print("currA: {}".format(currA))
+            # print("currB: {}".format(currB))
+            # print("carry: {}".format(carry))
             if (currA is None) and (currB is None):
                 sum = carry
             elif currA is None:
@@ -39,8 +39,8 @@ class Solution(object):
             elif sum < 2:
                 carry = 0
 
-            # print "sum: {}".format(sum)
-            # print "carry: {}".format(carry)
+            # print("sum: {}".format(sum))
+            # print("carry: {}".format(carry))
 
             ptrA -= 1
             ptrB -= 1
@@ -60,7 +60,7 @@ class Solution(object):
         return ans
 
 def stringToString(input):
-    return input[1:-1].decode('string_escape')
+    return input[1:-1]
 
 def main():
     import sys
@@ -70,18 +70,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             a = stringToString(line)
-            print "a: {}".format(a)
-            line = lines.next()
+            print("a: {}".format(a))
+            line = next(lines)
             b = stringToString(line)
-            print "b: {}".format(b)
+            print("b: {}".format(b))
 
             ret = Solution().addBinary(a, b)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

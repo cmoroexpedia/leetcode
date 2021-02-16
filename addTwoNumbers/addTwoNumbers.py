@@ -38,7 +38,7 @@ class Solution(object):
         """
 
         sum = l1.val + l2.val
-        # print "sum: " + str(sum)
+        # print("sum: " + str(sum))
         if sum>=10:
             sum = sum - 10
             carryover = 1
@@ -46,7 +46,7 @@ class Solution(object):
             carryover = 0
         result = ListNode(sum)
         ptr = result
-        # print "current result: " + listNodeToString(result)
+        # print("current result: " + listNodeToString(result))
 
         while l1.next or l2.next or carryover==1:
             if l1.next:
@@ -60,7 +60,7 @@ class Solution(object):
                 l2.val = 0
 
             sum = l1.val + l2.val + carryover
-            # print "sum: " + str(sum)
+            # print("sum: " + str(sum))
             if sum>=10:
                 sum = sum - 10
                 carryover = 1
@@ -106,18 +106,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             l1 = stringToListNode(line)
-            print listNodeToString(l1)
-            line = lines.next()
+            print(listNodeToString(l1))
+            line = next(lines)
             l2 = stringToListNode(line)
-            print listNodeToString(l2)
+            print(listNodeToString(l2))
 
             ret = Solution().addTwoNumbers(l1, l2)
 
             out = listNodeToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

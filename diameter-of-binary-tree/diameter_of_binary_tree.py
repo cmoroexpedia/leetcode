@@ -13,11 +13,11 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        # print "Traverse Recursive:"
+        # print("Traverse Recursive:")
         # traverseTreeRecursive(root)
-        # print "Traverse InOrder:"
+        # print("Traverse InOrder:")
         # traverseInOrder(root)
-        # print "Traverse PreOrder:"
+        # print("Traverse PreOrder:")
         # traversePreOrder(root)
 
         self.ans = 1
@@ -47,11 +47,11 @@ class Solution(object):
 def traverseTreeRecursive(root):
 
     # Preorder
-    print "val: " + str(root.val)
+    print("val: " + str(root.val))
 
     if root.left == None and root.right == None:
         # reached a leaf
-        # print "Found a leaf! (val: " + str(root.val) + ")"
+        # print("Found a leaf! (val: " + str(root.val) + ")")
         return
 
     traverseTreeRecursive(root.left)
@@ -98,7 +98,7 @@ def traversePreOrder(root):
     while (len(stack) > 0):
 
         current = stack.pop()
-        print current.val
+        print(current.val)
 
         if current.right is not None:
             stack.append(current.right)
@@ -153,14 +153,14 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             root = stringToTreeNode(line)
 
             ret = Solution().diameterOfBinaryTree(root)
 
             out = intToString(ret)
-            print "out: " + str(out)
+            print("out: " + str(out))
         except StopIteration:
             break
 

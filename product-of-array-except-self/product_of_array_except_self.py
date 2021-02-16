@@ -37,14 +37,14 @@ class Solution(object):
         while i < len(nums):
             L[i] = L[i-1] * nums[i-1]
             i += 1
-        # print L
+        # print(L)
 
         # will start populating the right array
         i = len(nums)-2
         while i >= 0:
             R[i] = R[i+1] * nums[i+1]
             i -= 1
-        # print R
+        # print(R)
 
         # now we iterate over the elements and simply multiply L * R
         for i in range(len(nums)):
@@ -69,15 +69,15 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             nums = stringToIntegerList(line)
-            print nums
+            print(nums)
 
             ret = Solution().productExceptSelf(nums)
 
             out = integerListToString(ret)
-            print "out: " + str(out)
+            print("out: " + str(out))
         except StopIteration:
             break
 

@@ -5,10 +5,10 @@ import unittest
 
 def say_hello():
 
-    print '**********************************************************************'
+    print('**********************************************************************')
 
     msg = 'Hello, World'
-    print msg
+    print(msg)
     return msg
 
 # for i in xrange(5):

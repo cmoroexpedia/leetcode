@@ -9,19 +9,19 @@ class Solution(object):
         """
 
         combined_array = sorted(nums1 + nums2)
-        # print "combined array: " + str(combined_array)
+        # print("combined array: " + str(combined_array))
 
         # now I need to find the median
         if len(combined_array) % 2 == 0:
-            # print "array size (" + str(len(combined_array)) + ") is even number"
+            # print("array size (" + str(len(combined_array)) + ") is even number")
             median_index1 = len(combined_array)/2 - 1
             median_index2 = median_index1 + 1
-            # print "median index 1: " + str(median_index1)
-            # print "median index 2: " + str(median_index2)
-            # print "median: " + str(combined_array[median_index1]) + " + " + str(combined_array[median_index2]) + " / 2"
+            # print("median index 1: " + str(median_index1))
+            # print("median index 2: " + str(median_index2))
+            # print("median: " + str(combined_array[median_index1]) + " + " + str(combined_array[median_index2]) + " / 2")
             median = (combined_array[median_index1] + combined_array[median_index2]) / 2.0
         else:
-            # print "array size (" + str(len(combined_array)) + ") is odd number"
+            # print("array size (" + str(len(combined_array)) + ") is odd number")
             median_index = abs(len(combined_array)/2)
             median = combined_array[median_index]
 
@@ -142,16 +142,16 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "******************************** start ***************************************"
-            line = lines.next()
+            print("******************************** start ***************************************")
+            line = next(lines)
             nums1 = stringToIntegerList(line)
-            line = lines.next()
+            line = next(lines)
             nums2 = stringToIntegerList(line)
 
             ret = Solution().findMedianSortedArrays(nums1, nums2)
 
             out = doubleToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

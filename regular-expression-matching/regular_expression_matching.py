@@ -2,7 +2,7 @@
 class Solution(object):
     def isMatch(self, text, pattern):
 
-        # print "---> function isMatch called with " + str(text) + " , " + str(pattern)
+        # print("---> function isMatch called with " + str(text) + " , " + str(pattern))
 
         if not pattern:
             return not text
@@ -28,17 +28,17 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             s = stringToString(line)
-            print "string: " + s
-            line = lines.next()
+            print("string: " + s)
+            line = next(lines)
             p = stringToString(line)
-            print "pattern: " + p
+            print("pattern: " + p)
             ret = Solution().isMatch(s, p)
 
             out = (ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

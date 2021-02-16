@@ -20,7 +20,7 @@ class Solution(object):
         if not l1 or not l2: return l1 or l2
 
         while l1 or l2:
-            # print "*************************"
+            # print("*************************")
             if not l1:
                 ptr.next = ListNode(l2.val)
                 ptr = ptr.next
@@ -80,18 +80,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "======================================="
-            line = lines.next()
+            print("=======================================")
+            line = next(lines)
             l1 = stringToListNode(line)
-            print listNodeToString(l1)
-            line = lines.next()
+            print(listNodeToString(l1))
+            line = next(lines)
             l2 = stringToListNode(line)
-            print listNodeToString(l2)
+            print(listNodeToString(l2))
 
             ret = Solution().mergeTwoLists(l1, l2)
 
             out = listNodeToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

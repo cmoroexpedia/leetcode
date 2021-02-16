@@ -13,7 +13,7 @@ class Solution(object):
         if negative:
             reversed_int = reversed_int * -1
 
-        # print "reversed int: " + str(reversed_int)
+        # print("reversed int: " + str(reversed_int))
         if reversed_int > (2**31-1) or reversed_int < (-2**31):
             return 0
         else:
@@ -37,14 +37,14 @@ def main():
 
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             x = stringToInt(line)
-            print "integer to be converted: " + str(x)
+            print("integer to be converted: " + str(x))
             ret = Solution().reverse(x)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

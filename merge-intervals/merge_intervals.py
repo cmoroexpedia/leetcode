@@ -8,12 +8,12 @@ class Solution(object):
         """
 
         intervals.sort()
-        # print "sorted intervals: " + str(intervals)
+        # print("sorted intervals: " + str(intervals))
 
         ans = []
         i = 0
         while i < len(intervals):
-            # print intervals[i]
+            # print(intervals[i])
 
             if i == len(intervals)-1:
                 # I'm at last elem, so I'll just add to answer
@@ -22,7 +22,7 @@ class Solution(object):
                 continue
 
             if intervals[i][1] >= intervals[i+1][0]:
-                # print "overlap with next!"
+                # print("overlap with next!")
                 # these two overlap, so I'll start merging
                 min_left = min(intervals[i][0],intervals[i+1][0])
                 max_right = max(intervals[i][1],intervals[i+1][1])
@@ -57,16 +57,16 @@ def main():
             yield line.strip('\n')
     lines = readlines()
     while True:
-        print "********************** start ************************"
+        print("********************** start ************************")
         try:
-            line = lines.next()
+            line = next(lines)
             intervals = stringToInt2dArray(line)
-            print intervals
+            print(intervals)
 
             ret = Solution().merge(intervals)
 
             out = int2dArrayToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

@@ -38,14 +38,14 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             n = stringToInt(line)
-            print "steps: " + str(n)
+            print("steps: " + str(n))
             ret = Solution().climbStairs(n)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

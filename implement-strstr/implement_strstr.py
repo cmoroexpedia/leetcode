@@ -12,11 +12,11 @@ class Solution(object):
         res = -1
         # bruteforce solution
         for i in range(len(haystack)):
-            # print "looking at char: " + str(haystack[i])
+            # print("looking at char: " + str(haystack[i]))
             # compare current char with first char of needle
             if haystack[i] == needle[0]:
                 if haystack[i:i+len(needle)] == needle:
-                    # print "setting res to: " + str(i)
+                    # print("setting res to: " + str(i))
                     res = i
                     break
         return res
@@ -39,18 +39,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             haystack = stringToString(line)
-            print "Haystack: " + haystack
-            line = lines.next()
+            print("Haystack: " + haystack)
+            line = next(lines)
             needle = stringToString(line)
-            print "Needle: " + needle
+            print("Needle: " + needle)
 
             ret = Solution().strStr(haystack, needle)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

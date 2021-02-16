@@ -36,7 +36,7 @@ class Solution(object):
             # adding char to dict of seen chars
             seen[char] = index
 
-            # print "s[{}]={}".format(index,char)
+            # print("s[{}]={}".format(index,char))
             # print("last duplicate seen: " + str(lastDupSeen))
             # print("current substring start: " + str(substringStart))
             # print("current substring size: " + str(substringSize))
@@ -94,7 +94,7 @@ class SolutionMaxHeap(object):
         substringSize = 0
 
         for char in s:
-            # print "current char: " + char
+            # print("current char: " + char)
 
             if char not in seen:
                 substringSize += 1
@@ -139,15 +139,15 @@ def main():
 
     while True:
         try:
-            line = lines.next()
+            line = next(lines)
             s = stringToString(line)
-            print "***************************************** start ***********************************************"
+            print("***************************************** start ***********************************************")
             print("string: " + s)
 
             ret = Solution().lengthOfLongestSubstring(s)
 
             out = intToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

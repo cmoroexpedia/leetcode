@@ -12,24 +12,24 @@ class Solution(object):
         for i in range(1,len(nums)):
             cum_sum.append(cum_sum[i-1]+nums[i])
 
-        # print cum_sum
+        # print(cum_sum)
 
         ans = 0
         for i in range(len(nums)):
-            # print nums[i]
+            # print(nums[i])
             sum = nums[i]
             if sum == k:
                 ans += 1
 
             j = i + 1
             while j < len(nums):
-                # print nums[i:j+1]
-                # print "i: {}, j: {}".format(i,j)
+                # print(nums[i:j+1])
+                # print("i: {}, j: {}".format(i,j))
                 if i == 0:
                     sum = cum_sum[j]
                 else:
                     sum = cum_sum[j] - cum_sum[i-1]
-                # print "current sum: {}".format(sum)
+                # print("current sum: {}".format(sum))
                 if sum == k:
                     ans += 1
                 j += 1
@@ -51,14 +51,14 @@ class Solution_Slow(object):
         ans = 0
 
         for i in range(len(nums)):
-            # print nums[i]
+            # print(nums[i])
             sum = nums[i]
             if sum == k:
                 ans += 1
 
             j = i + 1
             while j < len(nums):
-                # print nums[i:j+1]
+                # print(nums[i:j+1])
                 sum += nums[j]
                 if sum == k:
                     ans += 1
@@ -87,18 +87,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "**************************** start *******************************"
-            line = lines.next()
+            print("**************************** start *******************************")
+            line = next(lines)
             nums = stringToIntegerList(line)
-            print "nums: {}".format(nums)
-            line = lines.next()
+            print("nums: {}".format(nums))
+            line = next(lines)
             k = stringToInt(line)
-            print "k: {}".format(k)
+            print("k: {}".format(k))
 
             ret = Solution().subarraySum(nums, k)
 
             out = intToString(ret)
-            print "out: {}".format(out)
+            print("out: {}".format(out))
         except StopIteration:
             break
 

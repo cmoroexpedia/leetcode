@@ -14,9 +14,9 @@ class Solution(object):
 
         # first, will go through list and calculate the distances
         for i in range(len(points)):
-            # print points[i]
+            # print(points[i])
             distance = math.sqrt((points[i][0]**2)+(points[i][1]**2))
-            # print distance
+            # print(distance)
             distances.append(distance)
 
         # now we sort distances
@@ -45,16 +45,16 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             points = stringToInt2dArray(line)
-            line = lines.next()
+            line = next(lines)
             K = stringToInt(line)
 
             ret = Solution().kClosest(points, K)
 
             out = int2dArrayToString(ret)
-            print out
+            print(out)
         except StopIteration:
             break
 

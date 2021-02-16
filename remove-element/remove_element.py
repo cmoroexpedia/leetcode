@@ -8,12 +8,12 @@ class Solution(object):
         :rtype: int
         """
         # for elem in nums:
-        #     print "looking at elem: " + str(elem)
+        #     print("looking at elem: " + str(elem))
         #     if elem == val:
         #         nums.remove(val)
         i = 0
         while i < len(nums):
-            print "looking at elem at position: " + str(i) + "(" + str(nums[i]) + ")"
+            print("looking at elem at position: " + str(i) + "(" + str(nums[i]) + ")")
             if nums[i] == val:
                 del nums[i]
                 continue
@@ -44,18 +44,18 @@ def main():
     lines = readlines()
     while True:
         try:
-            print "********************** start ************************"
-            line = lines.next()
+            print("********************** start ************************")
+            line = next(lines)
             nums = stringToIntegerList(line)
-            print "nums: " + str(nums)
-            line = lines.next()
+            print("nums: " + str(nums))
+            line = next(lines)
             val = stringToInt(line)
-            print "val to be removed: " + str(val)
+            print("val to be removed: " + str(val))
 
             ret = Solution().removeElement(nums, val)
 
             out = integerListToString(nums, len_of_list=ret)
-            print "output: " + out
+            print("output: " + out)
         except StopIteration:
             break
 
