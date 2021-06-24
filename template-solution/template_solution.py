@@ -1,5 +1,6 @@
 import json
 
+
 class Solution:
     def solve(self, input: list[int]) -> int:
 
@@ -118,8 +119,6 @@ def stringToTreeNode(input):
 
 
 def stringToString(input):
-    import json
-
     return json.loads(input)
 
 

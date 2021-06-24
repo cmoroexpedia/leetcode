@@ -1,11 +1,21 @@
 import json
 
+
 class Solution:
-    def solve(self, input: list[int]) -> int:
+    def solve(self, prices: list[int]) -> int:
+        # default to zero profit
+        solution = 0
 
-        solution = None
+        # brute force solution
+        for i in range(len(prices)):
+            # check the current price with all future days and save the maximum profit
+            for j in range(i+1,len(prices)):
+                #print('comparing buy:{} with sel:{}'.format(prices[i],prices[j]))
+                profit = prices[j] - prices[i]
+                if profit > solution:
+                    solution = profit
+
         return solution
-
 
 
 # Definition for a binary tree node.
@@ -118,8 +128,6 @@ def stringToTreeNode(input):
 
 
 def stringToString(input):
-    import json
-
     return json.loads(input)
 
 

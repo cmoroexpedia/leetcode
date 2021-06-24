@@ -1,9 +1,9 @@
 # leetcode
-Repository to store Leetcode problems I solved so far
+Repository to store LeetCode problems I solved so far.
 
 ## Instructions
 
-In order to create a new problem, run `create_problem.py` passing the name of problem as argument. E.g.:
+In order to create a new problem from a template, run `create_problem.py` passing the name of problem as argument. E.g.:
 
 ```
 $ ./create_problem.py best-time-to-buy-and-sell-stock
