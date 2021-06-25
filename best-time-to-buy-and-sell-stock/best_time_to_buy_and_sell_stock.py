@@ -6,6 +6,72 @@ class Solution:
         # default to zero profit
         solution = 0
 
+        # solve in one pass
+        min_price = float('inf')
+        for i in range(len(prices)):
+            if prices[i] < min_price:
+                min_price = prices[i]
+            elif prices[i] - min_price > solution:
+                solution = prices[i] - min_price
+        return solution
+
+
+class SolutionEvenWorse:
+    def solve(self, prices: list[int]) -> int:
+        # default to zero profit
+        solution = 0
+
+        # make a copy of prices and sort it retaining original index
+        sorted_prices = []
+        for i in range(len(prices)):
+            sorted_prices.append([prices[i],i])
+        sorted_prices.sort()
+        #print('sorted prices with original indexes: {}'.format(sorted_prices))
+
+        # start comparing leftmost with rightmost element moving inward
+        left = 0
+        right = len(sorted_prices) - 1
+
+        while right > left:
+            maximum_profit = sorted_prices[right][0]-sorted_prices[left][0]
+            if maximum_profit < solution:
+                break
+            #print('maximum profit on this iteration: {}'.format(maximum_profit))
+
+            # start comparing left with right elements in right to left order
+            for i in range(right, left, -1):
+                possible_profit = sorted_prices[i][0]-sorted_prices[left][0]
+                if possible_profit < solution:
+                    break
+                #print('LEFT: comparing {} with {}'.format(sorted_prices[left],sorted_prices[i]))
+                # check if buy date is before sell date and save profit
+                if sorted_prices[left][1] < sorted_prices[i][1]:
+                    #print('found possible profit of: {}'.format(possible_profit))
+                    if possible_profit > solution:
+                        solution = possible_profit
+            # now compare right with left elements in left to right order
+            for i in range(left+1, right):
+                possible_profit = sorted_prices[right][0]-sorted_prices[i][0]
+                if possible_profit < solution:
+                    break
+                #print('RIGHT: comparing {} with {}'.format(sorted_prices[i],sorted_prices[right]))
+                # check if buy date is before sell date and save profit
+                if sorted_prices[i][1] < sorted_prices[right][1]:
+                    #print('found possible profit of: {}'.format(possible_profit))
+                    if possible_profit > solution:
+                        solution = possible_profit
+
+            right -= 1
+            left +=1
+
+        return solution
+
+
+class SolutionSlow:
+    def solve(self, prices: list[int]) -> int:
+        # default to zero profit
+        solution = 0
+
         # brute force solution
         for i in range(len(prices)):
             # check the current price with all future days and save the maximum profit
@@ -13,6 +79,7 @@ class Solution:
                 #print('comparing buy:{} with sel:{}'.format(prices[i],prices[j]))
                 profit = prices[j] - prices[i]
                 if profit > solution:
+                    #print('found better profit at buy:{} and sell:{}'.format(prices[i],prices[j]))
                     solution = profit
 
         return solution
