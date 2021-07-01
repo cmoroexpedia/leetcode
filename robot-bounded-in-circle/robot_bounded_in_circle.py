@@ -2,7 +2,7 @@ import json
 
 
 class Solution:
-    def solve(self, input: list[int]) -> int:
+    def isRobotBounded(self, instructions: str) -> bool:
 
         solution = None
         return solution
@@ -169,12 +169,11 @@ def main():
         try:
             line = next(lines)
             print("********************** start ************************")
-            input = stringToIntegerList(line)
+            input = stringToString(line)
             print("input: " + str(input))
+            ret = Solution().isRobotBounded(input)
 
-            ret = Solution().solve(input)
-
-            out = intToString(ret)
+            out = boolToString(ret)
             print("output: " + out)
         except StopIteration:
             break
