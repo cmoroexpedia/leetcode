@@ -1,3 +1,4 @@
 "GGLLGG"
+"GGRRGG"
 "GG"
 "GL"
