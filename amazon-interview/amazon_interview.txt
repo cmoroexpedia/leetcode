@@ -1,0 +1,3 @@
+"Carlos Moro"
+"bellevue"
+"this is a long string lets see whats the longest substring"
